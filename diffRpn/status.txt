@@ -1,0 +1,126 @@
+Differential RPN Calculator
+
+todo:
+.) verify error output vs irpn
+	.) note: division error can get smaller!
+
+
+4feb19:
+.) now handle argument errors without aborting.
+
+3feb19:
+.) created Windows build;
+.) carefully used abs() to ensure proper
+	handling of differentials;  See applyOp;
+.) added asin,acos;
+.) added show stack(k);
+.) added help (h);
+.) removed autodiff; now calc symbolic
+	derivatives internally;
+
+29jan19:
+.) preliminary build using symbolic derivatives
+	to help define precise differentials with which 
+	good error estimates are produced, on the fly.
+
+
+#####################################################
+Theory:
+
+For unary operators:
+
+if  y = f(x)  then errors are estimated by:
+
+	dy = f'(x) * dx		[actually using abs(dy)]
+
+or for relative errors:
+
+	dy/y = f'(x)/y * dx
+
+------------------------------------------------
+
+...for binary operators
+
+	Z=F(x,y) we use the total differential expression:
+
+	dZ = Fx*dx + Fy*dy
+
+	or divide by Z for relative errors.
+
+================= spherical volume example ==============
+
+Let v=f(r) where f(r)=4/3 pi r**3 
+is the volume of a sphere.
+
+Let r=20.0 with an absolute error of dr=0.01
+
+Relative error in the radius is 
+	dr/r = 0.01/20 = 0.0005
+
+Relative error in the volume is dv/v =
+
+	= 4πr**2 * dr / (4/3)πr**3 
+
+	= 3 * (dr/r) = 3 * 0.0005 = 0.0015
+
+
+Since dv/v = 3*dr/r, 
+the relative error in the volume is roughly
+three times the relative error in the radius.
+This does NOT account for error in exponent!
+
+========= exact example for z=y^x @ y=10,x=10 =========
+
+Z =  y  **  x
+Z = 10.0 ** 10.0
+
+For single precision...
+assume  dx = dy = 2.86e-5 ( 2.86e-6 relerr )
+
+let F(x,y)=x*ln(y)
+
+Z=exp[x*ln(y)]
+
+Zx = Z * Fx = Z * ln(y)
+Zy = Z * Fy = Z * x/y
+
+dZ = Zx * dx + Zy * dy = total differential
+	= Z * ln(y) * dx + Z * x/y * dy
+	= Z * [ dx*ln(10) + dy*(10/10) ]
+	= Z * dx * [ ln(10) + 1 ]
+	= 1e10 * dx * 3.3
+	= 3.3e10 * dx
+
+	assuming dx = 2.86e-5
+
+	= (3.3*2.86) * 10**5
+	= 9.4e5
+	= 940_000
+
+So 10 ** 10 = 1.0e10 +/- 9.4e5
+ = 10_000_000_000 +/- 940_000
+ for a relative error of
+
+ 9.4e5/1.0e10 = 9.4e-5
+
+ starting with relative errors in x,y of
+ 2.86e-6
+
+============================================
+
+Machine Epsilon:
+
+Note:  
+Higham macheps: 1.19e-7(float) 2.22e-16(double)
+lapack macheps: 5.96e-8(float) 1.11e-16(double)
+c++float  => ieee "binary32"
+c++double => ieee "binary64"
+
+lapack macheps = smallest x such that 1+x>1
+
+me:=1.0;
+loop
+	exit when 1.0+0.5*me = 1.0;
+	me:=0.5*me;
+end loop;
+
