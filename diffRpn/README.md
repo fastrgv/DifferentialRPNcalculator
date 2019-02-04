@@ -24,6 +24,7 @@ Here is the header that appears on invocation:
 ---------------- Differential RPN calculator ---------------
 
 Key Map:
+
              <z>=>{clr}      <n>=>{CHS}      <k>=>{stack}
 
              <x>=>{X:Y}      <m>=>{STO}      <M>=>{RCL}
