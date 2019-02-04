@@ -96,7 +96,9 @@ To initiate, type:
 This app should run as delivered, but the tools to rebuild are included, and should be usable if you have an Ada compiler.
 
 **Windows** => wcmp.bat
+
 **MacOSX** => ocmp.sh
+
 **GNU/Linux** => lcmp.sh
 
 
