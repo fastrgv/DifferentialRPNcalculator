@@ -14,7 +14,7 @@ The function y = x^2, for example, has an error in y that is approximately twice
 
 So this app uses symbolic derivatives to help define accurate differentials.  As written, this regimen is efficient, and can often provide better estimates than numerically-approximated differentials.
 
-As each raw data item is entered, the unit roundoff error is used to define the initial dx.
+As each raw data item is entered, the unit roundoff error defines the initial dx.
 
 Similarly, the total differential is used for binary operators;  i.e. for Z=F(x,y) we use dZ = Fx * dx + Fy * dy.
 
