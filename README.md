@@ -8,7 +8,8 @@ This terminal app runs on PCs or laptops running Windows, OSX or GNU/Linux.  It 
 
 ## Details
 
-Unary operators y=F(x) have the differential estimator dy = F'(x) * dx.  The derivative thusly relates the functional error to the error in the operand x.  Similarly, the total differential is used for binary operators;  i.e. for Z=F(x,y) we use dZ = Fx * dx + Fy * dy.
+Unary operators y=F(x) have the differential estimator dy = F'(x) * dx.  The derivative thusly relates the functional error to the error in the operand x.  Similarly, the total differential is used for binary operators;  
+i.e. for Z=F(x,y) one uses dZ = ∂F/∂x * dx + ∂F/∂y * dy.
 
 The function y = x^2, for example, has an error in y that is approximately twice the error in x.
 
