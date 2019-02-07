@@ -281,7 +281,10 @@ when plus =>
 	num:=left+right;
 
 -- total differential 
-dnum:=(ddll+ddrr)*abs(num);
+--dnum:=(ddll+ddrr)*abs(num); --WRONG!
+
+	-- 7feb19
+	dnum:=ddll+ddrr;
 
 	push( data );
 
@@ -290,7 +293,10 @@ when minus =>
 	num:=left-right;
 
 -- total differential 
-	dnum:=(ddll+ddrr)*abs(num);
+	--dnum:=(ddll+ddrr)*abs(num);WRONG
+
+	--7feb19
+	dnum:=ddll+ddrr;
 
 	push( data );
 
@@ -298,12 +304,12 @@ when times =>
 	pop(left, ddll);
 	num:=left*right;
 
--- total differential 
+-- total differential Ok
 dnum := abs(right)*ddll+abs(left)*ddrr; --product rule
 
 	push( data );
 
-when divide =>  -- F=x/y: dF=dx/y-dy*x/y/y
+when divide =>  -- F=l/r: dF=(dl*r-dr*l) /r/r
 
 	if abs(right)<uround then
 		put_line("tiny denominator...Divide Aborted");
@@ -312,9 +318,12 @@ when divide =>  -- F=x/y: dF=dx/y-dy*x/y/y
 		pop(left, ddll);
 		num:=left/right;
 
-	-- total differential 
-	--dnum := (ddll*right-ddrr*left)/right/right; --quotient rule
-	dnum := (ddll+ddrr)*abs(right-left)/right/right; --quotient rule
+	-- total differential QuotientRule
+	--dnum := (ddll*right-ddrr*left)/right/right;
+	--dnum := (ddll+ddrr)*abs(right-left)/right/right;
+
+	--7feb19
+	dnum := ( ddll*abs(right)+ddrr*abs(left) ) /right/right;
 
 		push( data );
 
