@@ -62,15 +62,17 @@ Enhancements to user-friendliness will be coming soon!
 
 ### Example output [ ln(1.3e-6) ]:
 
+
 1.3e-6
 
-  1.300_000_000_000E-06   Er 2.89E-22    [ stack.top: 1 ]
+1.300_000_000_000_000E-06   Er 2.89E-22    [ stack.top: 1 ]
 
 l
 
  LN 
+ 
+-13.553_146_293_496_782   Er 2.22E-16   Rer 2.22E-16    [ stack.top: 1 ]
 
-    -13.553_146_293_497   Er 2.22E-16   Rer 2.22E-16    [ stack.top: 1 ]
 
 
 
