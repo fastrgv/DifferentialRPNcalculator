@@ -9,6 +9,8 @@ with ada.numerics;
 with text_io; use text_io;
 
 
+-- differential RPN calculator
+
 
 procedure drpn is 
 
@@ -67,8 +69,8 @@ uround: real := small; --set actual later
 	type tokentype is 
 		record 
 			op: optype; 
-			tval: real;
-			dval: real;
+			tval: real; --value
+			dval: real; --small positive differential
 		end record;
 
 	maxstack : integer := 99;
@@ -113,7 +115,6 @@ begin
 	--convert inStr to num:
 	myreal_io.get(inStr,num,last);
 	end if;
-
 	dnum:=uround*abs(num); --error estimate
 
 end update;
@@ -122,7 +123,6 @@ procedure showstack is
 begin
 	put("Stack: ");
 	new_line;
-	--for i in reverse 1..top loop
 	for i in 1..top loop
 		myreal_io.put( stack(i-1).tval, 2,11,3 );
 		if i=top then
@@ -131,7 +131,6 @@ begin
 			new_line;
 		end if;
 	end loop;
-	--new_line;
 end showstack;
 
 procedure showline is -- assumes num, dnum, top defined
@@ -139,27 +138,36 @@ procedure showline is -- assumes num, dnum, top defined
 	toolarge : constant real := 1.0e4;
 	den: real := abs(dnum);
 
-	nstr: string(1..20);
+	--careful:  too short => layout_error!
+	nstr: string(1..80); 
+	-- 3+15+4=22 minimum => 3 : sign+digit+".", 4 : "E"+sign+expon
+	-- where expon uses as many digits as necessary...
+
 	l,d,x,a,b: natural;
 begin
 	if den<1.0 then
 		den:=1.0;
 	end if;
 
+
 	if(abs(num)<toosmall)or(abs(num)>toolarge) then
-	--myreal_io.put(num,5,11,3);
-	myreal_io.put(nstr,num,12,3);
+		--myreal_io.put(num,5,11,3);
+		myreal_io.put(nstr,num,15,3);
 	else
-	--myreal_io.put(num,9,11,0);
-	myreal_io.put(nstr,num,12,0);
+		--myreal_io.put(num,9,11,0);
+		myreal_io.put(nstr,num,15,0);
 	end if;
+
 	--put(nstr); --normal output
+
 
 -- alternate output in groups of 3:
 	l:=nstr'length;
 	d:=ada.strings.fixed.index(nstr,".",1);
 	x:=ada.strings.fixed.index(nstr,"E",1);
-	a:=1; b:=d+3;
+	--a:=1;
+	a:=ada.strings.fixed.index_non_blank(nstr, nstr'first);
+	b:=d+3;
 	put(nstr(a..b));
 	loop
 		a:=b+1;
@@ -176,6 +184,7 @@ begin
 
 
 
+
 	put("   Er"); --29jan19
 	myreal_io.put(abs(dnum),2,2,3);
 
@@ -183,6 +192,7 @@ begin
 	put("   Rer"); --29jan19
 	myreal_io.put(abs(dnum/den),2,2,3);
 	end if;
+
 
 	put_line("    [ stack.top:"&integer'image(top)&" ]");
 
@@ -281,9 +291,6 @@ when plus =>
 	num:=left+right;
 
 -- total differential 
---dnum:=(ddll+ddrr)*abs(num); --WRONG!
-
-	-- 7feb19
 	dnum:=ddll+ddrr;
 
 	push( data );
@@ -293,9 +300,6 @@ when minus =>
 	num:=left-right;
 
 -- total differential 
-	--dnum:=(ddll+ddrr)*abs(num);WRONG
-
-	--7feb19
 	dnum:=ddll+ddrr;
 
 	push( data );
@@ -319,10 +323,6 @@ when divide =>  -- F=l/r: dF=(dl*r-dr*l) /r/r
 		num:=left/right;
 
 	-- total differential QuotientRule
-	--dnum := (ddll*right-ddrr*left)/right/right;
-	--dnum := (ddll+ddrr)*abs(right-left)/right/right;
-
-	--7feb19
 	dnum := ( ddll*abs(right)+ddrr*abs(left) ) /right/right;
 
 		push( data );
