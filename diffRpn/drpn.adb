@@ -136,7 +136,7 @@ end showstack;
 procedure showline is -- assumes num, dnum, top defined
 	toosmall : constant real := 1.0e-1;
 	toolarge : constant real := 1.0e4;
-	den: real := abs(dnum);
+	den: real := abs(num);
 
 	--careful:  too short => layout_error!
 	nstr: string(1..80); 
