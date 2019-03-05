@@ -60,7 +60,7 @@ Recall it by typing M3 + (enter);  this puts it on top of stack, while retaining
 Enhancements to user-friendliness will be coming soon!
 
 
-### Example output [ ln(1.3e-6) ]:
+### Example output [ ln(1.3e-6) ] (note: periods added since markdown does not preserve multiple spaces):
 
 
 1.3e-6
