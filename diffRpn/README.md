@@ -65,7 +65,7 @@ Enhancements to user-friendliness will be coming soon!
 
 1.3e-6
 
-"1.300_000_000_000_000E-06 Er 2.89E-22 [ stack.top: 1 ]"
+1.300_000_000_000_000E-06 " " Er " " 2.89E-22 " " [ stack.top: 1 ]
 
 l
 
