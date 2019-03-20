@@ -718,7 +718,9 @@ loop
 			( character'pos(ch) = 10 ) -- unix/linux <enter>
 			then -- <enter>
 
-				push( data, uistring(1..len) );
+				if len>1 then
+					push( data, uistring(1..len) );
+				end if;
 
 			elsif( character'pos(ch) = 27 ) then --<esc> => exit
 				exit outer; --loop (quit program gracefully)
