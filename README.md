@@ -79,7 +79,8 @@ l
 ## Setup & Running:
 The application's root directory [~/diffRpn/] contains files for deployment on 3 platforms:  1)OS-X, 2)linux, 3)Windows, in addition to all the source code.
 
-Unzip the archive.
+Unzip the archive.The proper command to extract the archive and maintain the directory structure is "7z x filename".
+
 
 Open a commandline terminal, and cd to the install directory.
 
