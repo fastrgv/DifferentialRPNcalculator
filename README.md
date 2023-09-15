@@ -1,4 +1,5 @@
 ![screenshot](https://github.com/fastrgv/DifferentialRPNcalculator/blob/master/rpn.png)
+
 Calculating sin(pi/3)
 
 
