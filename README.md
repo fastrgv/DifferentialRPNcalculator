@@ -1,3 +1,5 @@
+![screenshot](https://github.com/fastrgv/DifferentialRPNcalculator/blob/master/rpn.png)
+
 # Differential RPN Calculator
 
 Here is the latest release including all source code and executables for linux & Windows:
