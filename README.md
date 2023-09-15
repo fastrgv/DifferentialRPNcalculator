@@ -150,6 +150,15 @@ This app should run as delivered, but the tools to rebuild are included, and sho
 **GNU/Linux** => gcmp.sh
 
 
+## Note on Accuracy
+
+The output of this calculator has been tested against my interval calculator,
+that uses interval arithmetic, which is very much more complex. The results
+and error estimates are completely consistent. Reference:
+
+https://sourceforge.net/projects/intervalrpncalculator/
+
+
 =======================================================================
 DifferentialRPN is covered by the GNU GPL v3 as indicated in the sources:
 
