@@ -9,7 +9,7 @@ https://github.com/fastrgv/DifferentialRPNcalculator/releases/download/v1.0.1/dr
 
 
 
-**ver 1.01 -- 15sep2023**
+**ver 1.0.1 -- 15sep2023**
 
 * New delivery as a stand alone app.
 * Dropped Mac OSX development
