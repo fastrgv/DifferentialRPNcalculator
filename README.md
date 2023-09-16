@@ -81,7 +81,7 @@ Key Map:
 
              <S>=>{asin}     <C>=>{acos}     <T>=>{atan}
 
-             <D>=>{Deg}      <R>=>{Rad}*		<n>=>{CHS}
+             <D>=>{Deg}      <R>=>{Rad}*     <n>=>{CHS}
 
              <l>=>{ln}       <r>=>{sqrt}    <esc>=>{quit} 
 
