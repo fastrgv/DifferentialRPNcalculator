@@ -2,6 +2,10 @@
 
 Calculating cos(pi/3)
 
+Download link:
+https://github.com/fastrgv/DifferentialRPNcalculator/releases/download/v1.0.2/drpn7oct23.7z
+
+
 # Differential RPN Calculator
 
 
