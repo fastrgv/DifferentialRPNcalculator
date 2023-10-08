@@ -6,6 +6,12 @@ Download link:
 https://github.com/fastrgv/DifferentialRPNcalculator/releases/download/v1.0.2/drpn7oct23.7z
 
 
+* On OSX, Keka works well for 7Z files. The command-line for Keka is:
+	* /Applications/Keka.app/Contents/MacOS/Keka --cli 7z x (filename.7z)
+
+
+
+
 # Differential RPN Calculator
 
 
