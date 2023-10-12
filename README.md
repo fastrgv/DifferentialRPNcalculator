@@ -14,6 +14,12 @@ https://github.com/fastrgv/DifferentialRPNcalculator/releases/download/v1.0.2/dr
 
 # Differential RPN Calculator
 
+**ver 1.03 -- 12oct2023**
+
+* More improvements in input handling.
+* Correction to menu.
+
+
 
 **ver 1.02 -- 7oct2023**
 
