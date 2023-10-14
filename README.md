@@ -88,23 +88,27 @@ Here is the header that appears on invocation:
 	
 ---------------- Differential RPN calculator ---------------
 
+           BinOp{+-*/} => Y:stack[top-1] (Op) X:stack[top]
 Key Map:
 
              <z>=>{clr}      <n>=>{CHS}      <k>=>{stack}
 
              <x>=>{X:Y}      <m>=>{STO}      <M>=>{RCL}
 
-             <p>=>{pi}       <E>=>{e^x}      <^>=>{x^y}
+             <p>=>{pi}       <E>=>{e^x}      <^>=>{y^x}
 
              <s>=>{sin}      <c>=>{cos}      <t>=>{tan}
 
              <S>=>{asin}     <C>=>{acos}     <T>=>{atan}
 
-             <D>=>{Deg}      <R>=>{Rad}*		<n>=>{CHS}
+             <D>=>{Deg}      <R>=>{Rad}*     <l>=>{ln}
 
-             <l>=>{ln}       <r>=>{sqrt}    <esc>=>{quit} 
+             <r>=>{sqrt}     <h>=>{help}     <i>=>{1/x} 
 
-				 						<h>=>{help}
+             <L>={lg}        <q>=>{quit}
+
+
+
 
 
 
