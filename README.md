@@ -139,7 +139,7 @@ For those familiar with the HP RPN calculators, the number entry here differs.  
 
 The allowed binary operators are {plus,minus,times,divide,pow}.  These are invoked with the usual keyboard keys (^ is pow).
 
-### Memory Function (mk/Mk, k=1..9):
+### Memory Function (mk/Mk, k=0..9):
 
 Enter a number, then type m3 + (enter), to store it in memory #3 location.  This will pop it off the stack.
 
