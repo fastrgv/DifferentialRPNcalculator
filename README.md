@@ -15,6 +15,12 @@ https://github.com/fastrgv/DifferentialRPNcalculator/releases/download/v1.0.4/dr
 
 # Differential RPN Calculator
 
+**ver 1.06 -- 13aug2024**
+
+* Arguments were reversed for the power-operator (^). That is now corrected.
+* Fixed header to clarify that y=stack(2), x=stack(1).
+
+
 **ver 1.04 -- 14oct2023**
 
 * Important corrections to input handling.
