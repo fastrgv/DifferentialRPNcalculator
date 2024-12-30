@@ -4,7 +4,7 @@ Calculating cos(pi/3)
 
 Download link:
 
-https://github.com/fastrgv/DifferentialRPNcalculator/releases/download/v1.0.6/drpn13aug24.7z
+https://github.com/fastrgv/DifferentialRPNcalculator/releases/download/v1.0.7/drpn1jan25.7z
 
 
 * On OSX, Keka works well for 7Z files. The command-line for Keka is:
